@@ -2,6 +2,7 @@ const express=require('express');
 require('dotenv').config();
 const app=express();
 const port=process.env.PORT;
+// var cors = require("cors");
 
 
 // MIDDLE WARE FOR PARSE REQ BODY
@@ -14,9 +15,18 @@ app.listen(port,()=>
 dbConnet();
 
 
+// app.use(
+//     cors({
+//       origin: "*",
+//     })
+//   );
+
 const userRouter=require("./routes/user");
 
-app.use("/base",userRouter);
+// app.use("/base",userRouter);
+
+app.use("/api/v1", userRouter);
+
 
 
 
